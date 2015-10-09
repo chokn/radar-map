@@ -31,6 +31,7 @@ RadarICON <- makeIcon( iconUrl = fileUrl, iconWidth = 20, iconHeight = 20)
 #make the map
 m <- leaflet(data = radar_E)
 m <- m %>% addTiles()
-m <- m %>% addMarkers(~lon, ~lat, icon = RadarICON
-                      # , popup = as.character(type)
-                      )
+# m <- m %>% addMarkers(~lon, ~lat, icon = RadarICON, popup = ~as.character(type))
+m <- m %>% addMarkers(~lon, ~lat, clusterOptions = markerClusterOptions())
+
+m
